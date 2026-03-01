@@ -1,4 +1,4 @@
-# Build stage
+# 1: Build stage
 FROM golang:1.23 AS buildstage
 
 WORKDIR /app
@@ -11,7 +11,7 @@ RUN go mod download
 RUN CGO_ENABLED=0 go build -o app .
 
 
-# Final stage
+# 2: Final stage
 FROM scratch
 
 WORKDIR /app

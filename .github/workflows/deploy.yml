@@ -29,7 +29,7 @@ jobs:
 
       - name: build, tag, and push to ecr
         run: |
-          # todo: replace this step with your docker build, tag, and push commands
-          # refer to docs/docker-commands.md for guidance on the required commands
-          echo "docker build, tag, and push commands not implemented"
-          exit 1
+          docker build -t assignment2:v1 .
+          docker tag assignment2:v1 ${{ env.ACCOUNT_ID }}.dkr.ecr.${{ env.REGION }}.amazonaws.com/${{ env.REPO_NAME }}:latest
+          docker push ${{ env.ACCOUNT_ID }}.dkr.ecr.${{ env.REGION }}.amazonaws.com/${{ env.REPO_NAME }}:latest
+          
